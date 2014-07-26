@@ -1,0 +1,33 @@
+{
+    "name": "SMG-TicTacToe",
+    "version": "0.0.1",
+    "description": "TicTacToe multiplayer game",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Sushindhran/SMG-TicTacToe.git"
+    },
+
+    "author": "Sushindhran Harikrishnan",
+    "license": "MIT",
+    "gitHead": "6dd69baa55263788b155e7f391dc7f747cdc9840",
+    "readmeFilename": "README.md",
+    "devDependencies": {
+        "http-proxy": "0.10.3",
+        "karma": "0.10.1",
+        "karma-coverage": "0.1.0",
+        "karma-junit-reporter": "0.1.0",
+        "karma-jasmine": "0.1.0",
+        "karma-requirejs": "0.2.1",
+        "karma-chrome-launcher": "0.1.2",
+        "karma-firefox-launcher": "0.1.3",
+        "karma-phantomjs-launcher": "0.1.2",
+        "karma-script-launcher": "0.1.0",
+        "karma-ng-html2js-preprocessor": "0.1.0",
+        "karma-coffee-preprocessor": "0.1.0",
+    },
+
+    "paths": {
+        "sourceDirectory": "src/main",
+        "testDirectory": "src/test"
+    }
+}
