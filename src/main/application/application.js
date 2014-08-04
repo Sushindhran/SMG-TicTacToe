@@ -27,15 +27,14 @@ angular.module(
     [
         '$routeProvider',
         function($routeProvider) {
-            console.log($routeProvider);
-            $routeProvider.when('/index', {
-                templateUrl: '/SMG-TicTacToe/src/main/application/view/home.html'
-            });
+
+            //Routes to game.html for /play
             $routeProvider.when('/play', {
                 templateUrl: '/SMG-TicTacToe/src/main/application/view/game.html'
             });
 
-            $routeProvider.otherwise({templateUrl: '/SMG-TicTacToe/src/main/application/view/home.html'});
+            //Defaults to game.html if it doesn't match any route
+            $routeProvider.otherwise({templateUrl: '/SMG-TicTacToe/src/main/application/view/game.html'});
         }
     ]
 );

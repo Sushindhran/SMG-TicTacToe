@@ -1,3 +1,4 @@
+//Game Service returns a Service object that has getters and setters
 TicTacToe.Services.factory('services.GameService',
     function(){
         var Service = {};

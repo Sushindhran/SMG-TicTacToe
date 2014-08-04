@@ -1,8 +1,9 @@
+//Game controller that contains some of the game logic and UI
 TicTacToe.Controllers.controller('view.GameController',
     ['$scope', '$rootScope', 'constants.Configuration', 'services.GameService',
         function ($scope, $rootScope, configuration, gameService) {
             var makeMoveCallback;
-            $scope.displayText = "Game started";
+            $scope.displayText = "Click Start to start the game";
 
             $scope.gridRows = [
                 {'id' : '0','class': 't l cell'},
@@ -31,16 +32,16 @@ TicTacToe.Controllers.controller('view.GameController',
 
                 console.log("State board "+state.board);
                 gameService.setState(state);
-            }
+            };
 
-            function isTie() {
+            var isTie = function() {
                 for (var i = 0; i < 9; i++) {
                     if (gameService.getState().board[i] === ' ') {
                         return false;
                     }
                 }
                 return true;
-            }
+            };
 
             var getWinner = function(){
                 var stateStr = '';
@@ -62,7 +63,7 @@ TicTacToe.Controllers.controller('view.GameController',
                     }
                 }
                 return ' ';
-            }
+            };
 
             $scope.getWinner = getWinner;
 
@@ -101,21 +102,22 @@ TicTacToe.Controllers.controller('view.GameController',
             }
 
             $scope.isMyMove = isMyMove;
+
             var sendMessage = function(id){
                 var state = gameService.getState();
                 var value = gameService.getYourPlayerIndex() == 0 ? 'X' : 'O';
                 state.board[id] = value;
                 state.winner =  getWinner();
                 console.log("Winner is "+state.winner);
-                setState(state.board);
+                //setState(state.board);
                 updateTicTacToeGraphics();
                 var operations = [];
-                operations.push({type: "Set", key: id.toString(), value: value, visibleToPlayerIndexes: "null"});
+                operations.push({type: "Set", key: id.toString(), value: value, visibleToPlayerIndexes: null});
                 if (state.winner != ' ') {
                     var winnerPlayerIndex = state.winner == 'X' ? 0 : 1;
-                    var playerScores = {};
+                    var playerScores = [];
                     for (var index = 0; index < 2; index++) {
-                        playerScores[configuration.playerIds[index]] = winnerPlayerIndex == index ? 1 : 0;
+                        playerScores[index] = winnerPlayerIndex == index ? 1 : 0;
                     }
                     operations.push({"type": "EndGame", endGameScores: playerScores});
                     console.log("Sending game over!");
