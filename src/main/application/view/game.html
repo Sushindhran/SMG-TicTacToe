@@ -1,0 +1,18 @@
+<div ng-controller="view.GameController as ctrl">
+    <div class="row">
+        <div class="large-8 columns right">
+            <h2>TIC TAC TOE</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns right" id='display-area'>
+            <div>{{displayText}}</div>
+            <div  id='board'>
+                <div ng-repeat="r in gridRows">
+                    <div class="{{r.class}}"><table><tr><td id="{{r.id}}" ng-mouseover="highlightSquare(r.id)" ng-click="moveInSquare(r.id)"></td></tr></table></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" ng-click="startGame()" value="Start">
+</div>

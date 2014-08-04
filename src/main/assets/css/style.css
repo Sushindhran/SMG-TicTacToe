@@ -1,0 +1,67 @@
+body {
+    font-family: 'Helvetica';
+}
+
+#board {
+    width:272px;
+    height: 272px;
+    margin: 20px auto;
+}
+
+#display-area {
+    text-align: center;
+}
+
+#winner {
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 89px;
+    height: 88px;
+    font-family: "Helvetica";
+    text-align: center;
+    vertical-align: middle;
+    margin:0px;
+    padding: 0px;
+}
+
+div.cell {
+    float: left;
+    width: 90px;
+    height: 90px;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 32pt;
+}
+
+div.mark {
+    position: absolute;
+    top: 15px;
+}
+
+div.l {
+    border-right: 1pt solid black;
+}
+
+div.c {
+}
+
+div.r {
+    border-left: 1pt solid black;
+}
+
+div.t {
+    border-bottom: 1pt solid black;
+}
+
+div.m {
+}
+
+div.b {
+    border-top: 1pt solid black;
+}
