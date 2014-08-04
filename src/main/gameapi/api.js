@@ -219,7 +219,7 @@ var platform = function () {
                     stateBeforeMove : stateBeforeMove,
                     stateAfterMove : stateAfterMove
                 }) !== true) {
-                throwError("You declated a hacker for a legal move! move=" + lastMove);
+                throwError("You declared a hacker for a legal move! move=" + lastMove);
             }
             game.updateUI(
                 {

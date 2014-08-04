@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="TicTacToe">
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>TicTacToe</title>
+
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<div ng-view></div>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+
+<script src="gameapi/api.js"></script>
+<script src="application/application.js"></script>
+<script src="application/constants/configuration.js"></script>
+<script src="application/service/game-service.js"></script>
+<script src="application/view/game-ctrl.js"></script>
+
+</body>
+</html>
+
