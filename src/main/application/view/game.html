@@ -5,10 +5,10 @@
             <div>{{displayText}}</div>
             <div id='board'>
                 <div ng-repeat="r in gridRows">
-                    <div class="{{r.class}}"><table><tr><td id="{{r.id}}" ng-mouseover="highlightSquare(r.id)" ng-click="moveInSquare(r.id)"></td></tr></table></div>
+                    <div class="{{r.class}}"><table><tr><td id="{{r.id}}"  ng-mouseover="highlightSquare(r.id, 'highlight')" ng-click="moveInSquare(r.id, 'makeMove')"></td></tr></table></div>
                 </div>
             </div>
         </div>
-        <input type="button" ng-click="startGame()" value="Start Game">
+        <button ng-click="startGame('gameStart')">Start Game</button>
     </div>
 </div>
