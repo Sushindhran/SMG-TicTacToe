@@ -6,15 +6,15 @@ TicTacToe.Controllers.controller('view.GameController',
             $scope.displayText = "Click Start to start the game";
 
             $scope.gridRows = [
-                {'id' : '0','class': 't l cell'},
-                {'id' : '1','class': 't c cell'},
-                {'id' : '2','class': 't r cell'},
-                {'id' : '3','class': 'm l cell'},
-                {'id' : '4','class': 'm c cell'},
-                {'id' : '5','class': 'm r cell'},
-                {'id' : '6','class': 'b l cell'},
-                {'id' : '7','class': 'b c cell'},
-                {'id' : '8','class': 'b r cell'}
+                {'id' : '0','class': 't l cell', 'value':''},
+                {'id' : '1','class': 't c cell', 'value':''},
+                {'id' : '2','class': 't r cell', 'value':''},
+                {'id' : '3','class': 'm l cell', 'value':''},
+                {'id' : '4','class': 'm c cell', 'value':''},
+                {'id' : '5','class': 'm r cell', 'value':''},
+                {'id' : '6','class': 'b l cell', 'value':''},
+                {'id' : '7','class': 'b c cell', 'value':''},
+                {'id' : '8','class': 'b r cell', 'value':''}
             ];
 
             var setState = function(serverState) {
@@ -72,7 +72,8 @@ TicTacToe.Controllers.controller('view.GameController',
                 var state = gameService.getState();
                 for (var i = 0; i < 9; i++) {
                     var square = document.getElementById(i);
-                    square.innerHTML = state.board[i];
+                    $scope.gridRows[i].value = state.board[i];
+                    $scope.$apply();
                 }
 
                 if (state.winner != ' ') {
