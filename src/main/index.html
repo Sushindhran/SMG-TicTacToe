@@ -16,6 +16,8 @@
 <div ng-view></div>
 
 <script src="lib/angular/angular.js"></script>
+<script src="lib/underscore/underscore-min.js"></script>
+<script src="lib/angular-sound/angular.audio.js"></script>
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
 
@@ -25,6 +27,11 @@
 <script src="application/service/game-service.js"></script>
 <script src="application/view/game-ctrl.js"></script>
 
+<!-- Adding the sounds to the DOM -->
+<audio id='gameStart' src="assets/sounds/game-start.mp3"></audio>
+<audio id='highlight' src="assets/sounds/highlight-square.mp3"></audio>
+<audio id='makeMove' src="assets/sounds/make-move.mp3"></audio>
+<audio id='endGame' src="assets/sounds/endgame.mp3"></audio>
 </body>
 </html>
 

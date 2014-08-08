@@ -15,7 +15,8 @@ TicTacToe.Dependencies = [
     'tictactoe.directives',
     'tictactoe.constants',
     'tictactoe.controllers',
-    'ngRoute'
+    'ngRoute',
+    'ngAudio'
 ];
 
 //Define the routes for the application using $routeProvider

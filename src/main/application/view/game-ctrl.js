@@ -1,7 +1,7 @@
 //Game controller that contains some of the game logic and UI
 TicTacToe.Controllers.controller('view.GameController',
-    ['$scope', '$rootScope', 'constants.Configuration', 'services.GameService',
-        function ($scope, $rootScope, configuration, gameService) {
+    ['$scope', '$rootScope', 'constants.Configuration', 'services.GameService', 'ngAudio',
+        function ($scope, $rootScope, configuration, gameService, ngAudio) {
             var makeMoveCallback;
             $scope.displayText = "Click Start to start the game";
 
@@ -114,6 +114,7 @@ TicTacToe.Controllers.controller('view.GameController',
                 var operations = [];
                 operations.push({type: "Set", key: id.toString(), value: value, visibleToPlayerIndexes: null});
                 if (state.winner != ' ') {
+                    ngAudio.play('endGame');
                     var winnerPlayerIndex = state.winner == 'X' ? 0 : 1;
                     var playerScores = [];
                     for (var index = 0; index < 2; index++) {
@@ -122,13 +123,17 @@ TicTacToe.Controllers.controller('view.GameController',
                     operations.push({"type": "EndGame", endGameScores: playerScores});
                     console.log("Sending game over!");
                 } else if (isTie()) {
+                    ngAudio.play('endGame');
                     operations.push({"type": "EndGame", endGameScores: [0, 0]})
                 }
                 console.log(["operations",operations,"state.winner=", state.winner, state]);
                 makeMoveCallback({move : operations, turnIndexAfterMove : 1 - gameService.getYourPlayerIndex()});
             };
 
-            $scope.moveInSquare = function(id){
+            $scope.moveInSquare = function(id, soundId){
+                //Play sound for move
+                ngAudio.play(soundId);
+
                 var state = gameService.getState();
 
                 if (isMyMove() && state.board[id] == ' ') {
@@ -137,7 +142,10 @@ TicTacToe.Controllers.controller('view.GameController',
             };
 
 
-            $scope.highlightSquare = function(id) {
+            $scope.highlightSquare = function(id, soundId) {
+                //Play sound for highlight square
+                ngAudio.play(soundId);
+
                 var state = gameService.getState();
                 if (state == null) {
                     return;
@@ -179,7 +187,8 @@ TicTacToe.Controllers.controller('view.GameController',
                 };
             }();
 
-            $scope.startGame = function(){
+            $scope.startGame = function(soundId) {
+                ngAudio.play(soundId);
                 platform.setGame(game);
                 platform.showUI({minNumberOfPlayers: 2, maxNumberOfPlayers: 2});
             };
